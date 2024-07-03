@@ -82,7 +82,9 @@ class NewsController extends Controller
      */
     public function update(UpdateNewsRequest $request, News $news)
     {
-        //
+        $news->update($request->all());
+
+        return  new NewsResource($news);
     }
 
     /**
@@ -93,6 +95,6 @@ class NewsController extends Controller
      */
     public function destroy(News $news)
     {
-        //
+        return $news->delete();
     }
 }
