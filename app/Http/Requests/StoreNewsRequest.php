@@ -13,7 +13,7 @@ class StoreNewsRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,21 @@ class StoreNewsRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'targetId'      => ['required'],
+            'headline'      => ['required', 'min:3', 'max:255'],
+            'description'   => ['required', 'min:3', 'max:255'],
+            'image'         => ['required'],
+            'video'         => ['required'],
+            'document'      => ['required'],
+            'createdBy'     => ['required'],
         ];
+    }
+
+    public function prepareForValidation()
+    {
+        $this->merge([
+            'target_id'  => $this->targetId,
+            'created_by' => $this->createdBy,
+        ]);
     }
 }

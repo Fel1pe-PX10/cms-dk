@@ -21,7 +21,7 @@ class CreateNewsTable extends Migration
             $table->string('image');
             $table->string('video');
             $table->string('document');
-            $table->string('createdBy');
+            $table->string('created_by');
             $table->timestamps();
         });
     }
