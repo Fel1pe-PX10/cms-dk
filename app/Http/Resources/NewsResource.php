@@ -18,14 +18,14 @@ class NewsResource extends JsonResource
     {
         return [
             'id'            => $this->id,
-            'target_id'     => $this->target_id,
+            'targetId'     => $this->target_id,
             'headline'      => $this->headline,
             'description'   => $this->description,
             'image'         => $this->image,
             'video'         => $this->video,
             'document'      => $this->document,
             'createdBy'     => $this->createdBy,
-            'createdAt'     => $this->created_at,
+            'createdAt'     => $this->created_at->format('d M Y'),
         ];
     }
 }

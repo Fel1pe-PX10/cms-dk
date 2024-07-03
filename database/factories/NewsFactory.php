@@ -13,9 +13,9 @@ class NewsFactory extends Factory
      */
     public function definition()
     {
-        $imageName = $this->faker->word()."png";
-        $pdfName = $this->faker->word()."pdf";
-        $videoName = $this->faker->word()."mp4";
+        $imageName = $this->faker->word().".png";
+        $pdfName = $this->faker->word().".pdf";
+        $videoName = $this->faker->word().".mp4";
 
         return [
             'target_id'     => $this->faker->numberBetween(1,10),
@@ -24,7 +24,7 @@ class NewsFactory extends Factory
             'image'         => $imageName,
             'document'      => $pdfName,
             'video'         => $videoName,
-            'createdBy'     => $this->faker->name()
+            'created_by'     => $this->faker->name()
         ];
     }
 }

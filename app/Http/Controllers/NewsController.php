@@ -24,6 +24,7 @@ class NewsController extends Controller
         $filter = new NewsFilter();
         $filterItems = $filter->transform($request);
 
+        //dd($filterItems);
         $news = News::where($filterItems);
         
         return new NewsCollection($news->paginate()->appends($request->query()));
