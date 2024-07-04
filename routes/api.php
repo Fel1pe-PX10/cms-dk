@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// route::apiResource('news', NewsController::class);
+route::apiResource('news', NewsController::class);
 
 /* Route::group(['namespace' => 'App\Http\Controllers\Api', 'middleware' => 'auth:sanctum'], function () {
     route::apiResource('news', NewsController::class);

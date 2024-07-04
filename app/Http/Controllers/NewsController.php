@@ -28,9 +28,11 @@ class NewsController extends Controller
 
         $news = News::where($filterItems);
         
-        $data = new NewsCollection($news->paginate()->appends($request->query()));
+        // $data = new NewsCollection($news->paginate()->appends($request->query()));
 
-        return view('news.index', compact('data'));
+        return new NewsCollection($news->paginate()->appends($request->query()));
+
+        // return view('news.index', compact('data'));
     }
 
     /**
@@ -42,7 +44,7 @@ class NewsController extends Controller
     {
         //if(Auth::user()->role != 'admin') return 'Unauthorize';
 
-        return view('news.create');
+        // return view('news.create');
     }
 
     /**
@@ -75,7 +77,7 @@ class NewsController extends Controller
      */
     public function edit(News $news)
     {
-        return view('news.edit', compact('news'));
+        // return view('news.edit', compact('news'));
     }
 
     /**
@@ -89,9 +91,9 @@ class NewsController extends Controller
     {
         $news->update($request->all());
 
-        // return  new NewsResource($news);
+        return  new NewsResource($news);
 
-        return redirect()->route('news.index');
+        // return redirect()->route('news.index');
     }
 
     /**
@@ -102,8 +104,8 @@ class NewsController extends Controller
      */
     public function destroy(News $news)
     {
-        // return $news->delete();
+        return $news->delete();
 
-        return redirect()->route('news.index');
+        // return redirect()->route('news.index');
     }
 }

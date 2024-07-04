@@ -23,7 +23,7 @@ Route::get('/', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard'); */
 
-Route::group(['middleware' => 'auth'], function()
+/* Route::group(['middleware' => 'auth'], function()
 {
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -32,7 +32,7 @@ Route::group(['middleware' => 'auth'], function()
     Route::resource('news-web', NewsWebController::class);
     Route::resource('news', NewsController::class);
 });
-
+ */
 
 
 

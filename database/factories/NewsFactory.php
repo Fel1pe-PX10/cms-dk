@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Target;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class NewsFactory extends Factory
@@ -18,7 +20,7 @@ class NewsFactory extends Factory
         $videoName = $this->faker->word().".mp4";
 
         return [
-            'target_id'     => $this->faker->numberBetween(1,10),
+            'target_id'     => Target::factory(),
             'headline'      => $this->faker->sentence,
             'description'   => $this->faker->sentence(10),
             'image'         => $imageName,
