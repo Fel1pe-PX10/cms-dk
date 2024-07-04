@@ -13,7 +13,8 @@ class StoreNewsRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        $user = $this->user();
+        return $user != null && $user->tokenCan('create');;
     }
 
     /**
@@ -27,10 +28,6 @@ class StoreNewsRequest extends FormRequest
             'targetId'      => ['required'],
             'headline'      => ['required', 'min:3', 'max:255'],
             'description'   => ['required', 'min:3', 'max:255'],
-            'image'         => ['required'],
-            'video'         => ['required'],
-            'document'      => ['required'],
-            'createdBy'     => ['required'],
         ];
     }
 
